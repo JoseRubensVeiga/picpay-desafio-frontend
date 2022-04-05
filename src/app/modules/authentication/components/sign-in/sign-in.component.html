@@ -5,6 +5,23 @@
       ><span class="text-primary-light text-light">Friends</span>
     </h3>
 
-    <h2 class="title-3">Bem vindo de volta</h2>
+    <h2 class="title-2 mb-4">Bem vindo de volta</h2>
+
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Email</mat-label>
+      <input type="text" matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Senha</mat-label>
+      <input [type]="showPassword ? 'text' : 'password'" matInput />
+      <button mat-icon-button matSuffix>
+        <mat-icon (click)="toggleShowPassword()">
+          {{ showPassword ? "visibility_off" : "visibility" }}
+        </mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" class="w-100">ENTRAR</button>
   </div>
 </div>
