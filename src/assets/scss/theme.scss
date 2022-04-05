@@ -1,0 +1,59 @@
+@use "@angular/material" as mat;
+@import "~@angular/material/theming";
+
+@include mat.core();
+
+$pic-pay-pallete: (
+    50: #ffffff,
+    100: #dde6f3,
+    200: #90bae7,
+    300: #90bae7,
+    400: #002d69,
+    500: #007dfe,
+    600: #007dfe,
+    700: #007dfe,
+    800: #305687,
+    900: #284770,
+    A100: #ffffff,
+    A200: #dde6f3,
+    A400: #002d69,
+    A700: #002d69,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: $black-87-opacity,
+        A200: $black-87-opacity,
+        A400: white,
+        A700: white,
+    ),
+);
+
+$my-primary: mat-palette($pic-pay-pallete);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$my-theme: mat.define-light-theme(
+    (
+        color: (
+            primary: $my-primary,
+            accent: $my-accent,
+        ),
+    )
+);
+
+// Emit theme-dependent styles for common features used across multiple components.
+@include mat.core-theme($my-theme);
+
+// Emit styles for MatButton based on `$my-theme`. Because the configuration
+// passed to `define-light-theme` omits typography, `button-theme` will not
+// emit any typography styles.
+@include mat.button-theme($my-theme);
+
+// Include the theme mixins for other components you use here.
