@@ -1,0 +1,13 @@
+.sign-in__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+
+    padding: 0 100px;
+}
+
+.sign-in__centered-container {
+    flex-grow: 1;
+}

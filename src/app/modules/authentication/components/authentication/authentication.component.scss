@@ -1,0 +1,40 @@
+:host {
+    min-height: 100vh;
+    display: block;
+}
+
+.authentication__container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.authentication__router {
+    width: 540px;
+    background-color: #f2f2f2;
+}
+
+.authentication__background {
+    flex-grow: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.authentication__background-image {
+    height: 100%;
+    width: 100%;
+
+    max-width: 737px;
+    max-height: 579px;
+}
+
+@media screen and(max-width: 820px) {
+    .authentication__background-image {
+        display: none;
+    }
+
+    .authentication__router {
+        width: 100%;
+    }
+}
