@@ -1,0 +1,41 @@
+@mixin title {
+  font-family: "Montserrat";
+  font-weight: 600;
+  margin: 14px 0;
+}
+
+.title-1 {
+  @include title;
+  font-size: 36px;
+}
+
+.title-2 {
+  @include title;
+  font-size: 30px;
+}
+
+.title-3 {
+  @include title;
+  font-size: 24px;
+}
+
+.title-4 {
+  @include title;
+  font-size: 18px;
+}
+
+.text-primary-dark {
+  color: $primaryColorDark !important;
+}
+
+.text-primary-light {
+  color: $primaryColorLight !important;
+}
+
+.text-bold {
+  font-weight: 800 !important;
+}
+
+.text-light {
+  font-weight: 400 !important;
+}
