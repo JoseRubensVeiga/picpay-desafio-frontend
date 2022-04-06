@@ -7,3 +7,7 @@ export const safeParseISO = (date: string | Date): Date => {
 
   return date ? parseISO(date) : (null as unknown as Date);
 };
+
+export const onlyNumbers = (str: string): string => {
+  return str.replace(/\D/g, "");
+};
