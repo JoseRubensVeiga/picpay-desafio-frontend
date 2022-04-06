@@ -19,6 +19,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { ReactiveFormsModule } from "@angular/forms";
 import { TasksService } from "./services/tasks";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   declarations: [PaymentsComponent],
@@ -36,6 +37,7 @@ import { TasksService } from "./services/tasks";
     MatTableModule,
     MatSortModule,
     MatCheckboxModule,
+    MatIconModule,
   ],
   providers: [
     {

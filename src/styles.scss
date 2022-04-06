@@ -28,3 +28,22 @@ body {
 .mat-spinner.spinner-white circle {
   stroke: #fff;
 }
+
+table.default-table tr {
+  font-family: "Lato";
+
+  th {
+    font-weight: 700;
+    font-size: 14px;
+    color: #2d3540;
+  }
+
+  &:nth-child(2n) {
+    background-color: #f5f8fa;
+  }
+
+  td {
+    height: 80px;
+    border: none !important;
+  }
+}

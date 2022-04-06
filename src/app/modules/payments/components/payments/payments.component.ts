@@ -40,7 +40,7 @@ export class PaymentsComponent implements OnInit, OnDestroy {
     this.searchInputControl.valueChanges
       .pipe(takeUntil(this._destroyed$))
       .subscribe((value) => {
-        console.log(value);
+        this.dataSource.filter = value;
       });
   }
 
