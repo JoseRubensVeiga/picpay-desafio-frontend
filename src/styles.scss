@@ -19,3 +19,8 @@ body {
 .c-pointer {
   cursor: pointer;
 }
+
+.mat-progress-spinner.spinner-white circle,
+.mat-spinner.spinner-white circle {
+  stroke: #fff;
+}

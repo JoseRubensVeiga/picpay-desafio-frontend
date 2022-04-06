@@ -1,8 +1,6 @@
 @use "@angular/material" as mat;
 @import "~@angular/material/theming";
 
-@include mat.core();
-
 $pic-pay-pallete: (
     50: #ffffff,
     100: #dde6f3,
@@ -52,6 +50,18 @@ button.mat-flat-button {
     letter-spacing: 1.5px;
 }
 
-@include mat.core-theme($my-theme);
+@include mat.all-component-themes($my-theme);
 
 @include mat.button-theme($my-theme);
+
+@include mat.core();
+
+.toast-message {
+    font-size: 12px;
+}
+
+.toast-container > div {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
