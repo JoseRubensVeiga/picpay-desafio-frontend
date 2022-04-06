@@ -1,7 +1,9 @@
 <h1 class="title-1">Meus pagamentos</h1>
 
 <div class="payments__title-container">
-  <button mat-flat-button color="primary">ADICIONAR PAGAMENTO</button>
+  <button mat-flat-button color="primary" (click)="onAddClick()">
+    ADICIONAR PAGAMENTO
+  </button>
 </div>
 
 <mat-card>
@@ -62,10 +64,18 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef class="text-end">Ações</th>
       <td mat-cell *matCellDef="let element" class="text-end">
-        <button mat-icon-button class="text-primary">
+        <button
+          mat-icon-button
+          class="text-primary"
+          (click)="onEditClick(element)"
+        >
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button class="text-danger">
+        <button
+          mat-icon-button
+          class="text-danger"
+          (click)="onRemoveClick(element)"
+        >
           <mat-icon>highlight_off</mat-icon>
         </button>
       </td>
@@ -75,3 +85,33 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </mat-card>
+
+<mat-modal [control]="addModalControl" size="800">
+  <app-payment-form
+    *ngIf="addModalControl.isOpened"
+    [task]="selectedTask"
+    (canceled)="addModalControl.close()"
+  ></app-payment-form>
+</mat-modal>
+
+<mat-modal [control]="removeModalControl" size="400">
+  <ng-container *ngIf="removeModalControl.isOpened">
+    <h3 class="title-3 mb-4">Excluir pagamento</h3>
+
+    <p>Usuário: {{ selectedTask.name }}</p>
+    <p>Data: {{ selectedTask.date | date: "dd/MM/yyyy" }}</p>
+    <p>Valor: {{ selectedTask.value | currency: "BRL" }}</p>
+
+    <div class="payments__buttons-container">
+      <button
+        mat-flat-button
+        class="border"
+        type="button"
+        (click)="removeModalControl.close()"
+      >
+        CANCELAR
+      </button>
+      <button mat-flat-button color="warn">EXCLUIR</button>
+    </div>
+  </ng-container>
+</mat-modal>

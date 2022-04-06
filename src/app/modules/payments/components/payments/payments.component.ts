@@ -8,6 +8,8 @@ import { takeUntil } from "rxjs/operators";
 import { Task } from "../../models/Task";
 import { TasksService } from "../../services/tasks";
 
+import { ModalControl } from "mat-modal";
+
 @Component({
   selector: "app-payments",
   templateUrl: "./payments.component.html",
@@ -25,6 +27,12 @@ export class PaymentsComponent implements OnInit, OnDestroy {
 
   dataSource = new MatTableDataSource<Task>();
 
+  addModalControl = new ModalControl();
+
+  removeModalControl = new ModalControl();
+
+  selectedTask: Task | null;
+
   constructor(private tasksService: TasksService) {}
 
   ngOnInit(): void {
@@ -34,6 +42,23 @@ export class PaymentsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this._destroyed$.next();
+  }
+
+  onAddClick(): void {
+    this.selectedTask = null;
+    this.addModalControl.open();
+  }
+
+  onEditClick(task: Task): void {
+    this.selectedTask = task;
+
+    this.addModalControl.open();
+  }
+
+  onRemoveClick(task: Task): void {
+    this.selectedTask = task;
+
+    this.removeModalControl.open();
   }
 
   private registerSearchInputControlChanges(): void {

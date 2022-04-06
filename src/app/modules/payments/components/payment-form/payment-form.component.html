@@ -1,0 +1,32 @@
+<h3 class="title-3 mb-4">{{ mode }} pagamento</h3>
+
+<form [formGroup]="formGroup" class="payment-form__form">
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Usuário*</mat-label>
+    <input type="text" matInput formControlName="name" />
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Valor*</mat-label>
+    <input type="text" matInput formControlName="value" />
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Data*</mat-label>
+    <input type="text" matInput formControlName="date" />
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Título*</mat-label>
+    <input type="text" matInput formControlName="title" />
+  </mat-form-field>
+
+  <div class="payment-form__buttons-container">
+    <button
+      mat-flat-button
+      class="border"
+      type="button"
+      (click)="onCancelClick()"
+    >
+      CANCELAR
+    </button>
+    <button mat-flat-button color="primary">SALVAR</button>
+  </div>
+</form>

@@ -1,0 +1,13 @@
+.payment-form__form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+}
+
+.payment-form__buttons-container {
+    grid-column: 2;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
