@@ -25,6 +25,7 @@
     "@angular/router": "~12.1.4",
     "date-fns": "^2.28.0",
     "mat-modal": "^0.0.8",
+    "ngx-mask": "^13.1.7",
     "ngx-toastr": "^14.2.3",
     "rxjs": "~6.6.7",
     "sweetalert2": "^11.4.8",
