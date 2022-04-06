@@ -14,7 +14,7 @@ import { CustomValidators } from "src/app/@core/validators/CustomValidators";
 import { NOTIFICATION_SERVICE } from "src/app/@core/tokens/notification-service.token";
 import { INotificationService } from "src/app/@core/interfaces/INotificationService";
 import { UpsetTask } from "../../models/UpsetTask";
-import { realToNumber } from "src/app/@core/utils/helpers";
+import { numberToReal, realToNumber } from "src/app/@core/utils/helpers";
 
 @Component({
   selector: "app-payment-form",
@@ -86,7 +86,8 @@ export class PaymentFormComponent implements OnInit {
 
     this.formGroup.patchValue({
       name: this.task.name,
-      value: this.task.value,
+      username: this.task.username,
+      value: numberToReal(this.task.value),
       date: format(this.task.date, "ddMMyyyy"),
       title: this.task.title,
     });

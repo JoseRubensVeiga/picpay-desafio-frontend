@@ -1,16 +1,6 @@
 {
   "tasks": [
     {
-      "id": 5,
-      "name": "Anthea Pundy",
-      "username": "apundy4",
-      "title": "Software Engineer III",
-      "value": 177.19,
-      "date": "2021-01-01T14:09:51Z",
-      "image": "https://robohash.org/quiaautomnis.png?size=150x150&set=set1",
-      "isPayed": true
-    },
-    {
       "id": 6,
       "name": "Hurleigh Malitrott",
       "username": "hmalitrott5",
@@ -88,7 +78,7 @@
       "value": 25.91,
       "date": "2021-05-25T14:51:59Z",
       "image": "https://robohash.org/cupiditatehicquaerat.png?size=150x150&set=set1",
-      "isPayed": true
+      "isPayed": false
     },
     {
       "id": 14,

@@ -97,7 +97,15 @@ export class PaymentsComponent implements OnInit, OnDestroy {
   }
 
   private editTask(upsetTask: UpsetTask): void {
-    console.log("editar task");
+    this.taskService
+      .updateTask(this.selectedTask.id, upsetTask)
+      .subscribe(() => {
+        this.notification.success(
+          `Tarefa ${this.selectedTask.id} alterada com sucesso!`
+        );
+
+        this.loadTasks();
+      });
   }
 
   private createTask(upsetTask: UpsetTask): void {

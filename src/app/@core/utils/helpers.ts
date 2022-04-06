@@ -8,10 +8,10 @@ export const safeParseISO = (date: string | Date): Date => {
   return date ? parseISO(date) : (null as unknown as Date);
 };
 
-export const onlyNumbers = (str: string): string => {
-  return str.replace(/\D/g, "");
-};
+export const onlyNumbers = (str: string): string => str.replace(/\D/g, "");
 
-export const realToNumber = (strInReal: string): number => {
-  return +strInReal.replace("R$ ", "").replace(/\./g, "").replace(/\,/g, ".");
-};
+export const realToNumber = (strInReal: string): number =>
+  +String(strInReal).replace("R$ ", "").replace(/\./g, "").replace(/\,/g, ".");
+
+export const numberToReal = (num: number): string =>
+  String(num.toFixed(2)).replace(/\./g, ",");

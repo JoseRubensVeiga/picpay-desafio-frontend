@@ -38,4 +38,11 @@ export class TaskService implements ITaskService {
       isPayed: status,
     });
   }
+
+  updateTask(taskId: number, upsetTask: UpsetTask): Observable<void> {
+    const baseURL = endpoints.tasks;
+    const url = `${baseURL}/${taskId}`;
+
+    return this.http.patch<void>(url, upsetTask);
+  }
 }

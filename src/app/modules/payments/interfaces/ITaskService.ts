@@ -10,4 +10,6 @@ export interface ITaskService {
   removeTask(taskId: number): Observable<void>;
 
   updateTaskStatus(taskId: number, status: boolean): Observable<void>;
+
+  updateTask(taskId: number, upsetTask: UpsetTask): Observable<void>;
 }
