@@ -3,9 +3,27 @@
     <strong class="text-white text-bold">Pay</strong
     ><span class="text-white text-light">Friends</span>
   </h3>
-  <img
-    class="header__avatar"
-    src="../../../../../assets/images/avatar.png"
-    alt="foto de uma mulher "
-  />
+
+  <div
+    matRipple
+    [matMenuTriggerFor]="settingsMenu"
+    class="header__avatar-container"
+  >
+    <img
+      class="header__avatar"
+      src="../../../../../assets/images/avatar.png"
+      alt="foto de uma mulher "
+    />
+  </div>
+
+  <mat-menu #settingsMenu>
+    <button mat-menu-item class="header__menu-button">
+      <mat-icon>manage_accounts</mat-icon>
+      Minha conta
+    </button>
+    <button mat-menu-item class="header__menu-button" (click)="onLogoutClick()">
+      <mat-icon>logout</mat-icon>
+      Sair
+    </button>
+  </mat-menu>
 </div>

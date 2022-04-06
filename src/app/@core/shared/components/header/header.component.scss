@@ -7,9 +7,21 @@
     align-items: center;
 
     padding: 0 30px;
+    margin-bottom: 30px;
+}
+
+.header__avatar-container {
+    border-radius: 50%;
 }
 
 .header__avatar {
     width: 45px;
     height: 45px;
+
+    cursor: pointer;
+}
+
+.header__menu-button {
+    display: flex;
+    align-items: center;
 }
