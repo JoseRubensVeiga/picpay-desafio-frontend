@@ -1,10 +1,18 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import {
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  OnInit,
+  Output,
+} from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { NotificationService } from "src/app/@core/services/notification";
 import { Task } from "../../models/Task";
 
 import { format, parse } from "date-fns";
 import { CustomValidators } from "src/app/@core/validators/CustomValidators";
+import { NOTIFICATION_SERVICE } from "src/app/@core/tokens/notification-service.token";
+import { INotificationService } from "src/app/@core/interfaces/INotificationService";
 
 @Component({
   selector: "app-payment-form",
@@ -22,7 +30,8 @@ export class PaymentFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private notification: NotificationService
+    @Inject(NOTIFICATION_SERVICE)
+    private notification: INotificationService
   ) {}
 
   ngOnInit(): void {
@@ -74,7 +83,7 @@ export class PaymentFormComponent implements OnInit {
     this.formGroup.patchValue({
       name: this.task.name,
       value: this.task.value,
-      date: format(this.task.date, "dd/MM/yyyy"),
+      date: format(this.task.date, "ddMMyyyy"),
       title: this.task.title,
     });
   }

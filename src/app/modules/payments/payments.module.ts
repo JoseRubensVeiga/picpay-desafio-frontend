@@ -22,8 +22,9 @@ import { PaymentsRoutingModule } from "./payments-routing.module";
 
 import { PaymentsComponent } from "./components/payments";
 import { getPtPaginatorIntl } from "src/app/@core/intl/paginator-intl";
-import { TasksService } from "./services/tasks";
+import { TaskService } from "./services/task";
 import { PaymentFormComponent } from "./components/payment-form";
+import { TASK_SERVICE } from "./tokens/task-service.token";
 
 @NgModule({
   declarations: [PaymentsComponent, PaymentFormComponent],
@@ -52,8 +53,10 @@ import { PaymentFormComponent } from "./components/payment-form";
       provide: MatPaginatorIntl,
       useValue: getPtPaginatorIntl(),
     },
-
-    TasksService,
+    {
+      provide: TASK_SERVICE,
+      useClass: TaskService,
+    },
   ],
 })
 export class PaymentsModule {}

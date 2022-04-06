@@ -1,7 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Inject, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { AuthService } from "src/app/@core/services/auth";
-import { NotificationService } from "src/app/@core/services/notification";
+import { IAuthService } from "src/app/@core/interfaces/IAuthService";
+import { INotificationService } from "src/app/@core/interfaces/INotificationService";
+import { AUTH_SERVICE } from "src/app/@core/tokens/auth-service.token";
+import { NOTIFICATION_SERVICE } from "src/app/@core/tokens/notification-service.token";
 
 @Component({
   selector: "app-header",
@@ -10,9 +12,10 @@ import { NotificationService } from "src/app/@core/services/notification";
 })
 export class HeaderComponent implements OnInit {
   constructor(
-    private authService: AuthService,
-    private router: Router,
-    private notification: NotificationService
+    @Inject(AUTH_SERVICE) private authService: IAuthService,
+    @Inject(NOTIFICATION_SERVICE)
+    private notification: INotificationService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}

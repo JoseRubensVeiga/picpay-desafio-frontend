@@ -10,6 +10,10 @@ import { SharedModule } from "./@core/shared/shared.module";
 import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
 import { registerLocaleData } from "@angular/common";
+import { AUTH_SERVICE } from "./@core/tokens/auth-service.token";
+import { AuthService } from "./@core/services/auth";
+import { NOTIFICATION_SERVICE } from "./@core/tokens/notification-service.token";
+import { NotificationService } from "./@core/services/notification";
 
 registerLocaleData(localePt);
 @NgModule({
@@ -28,6 +32,14 @@ registerLocaleData(localePt);
     {
       provide: LOCALE_ID,
       useValue: "pt-BR",
+    },
+    {
+      provide: AUTH_SERVICE,
+      useClass: AuthService,
+    },
+    {
+      provide: NOTIFICATION_SERVICE,
+      useClass: NotificationService,
     },
   ],
   bootstrap: [AppComponent],

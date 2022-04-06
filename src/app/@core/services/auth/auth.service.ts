@@ -2,17 +2,16 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
 import { BehaviorSubject, Observable, of, throwError } from "rxjs";
-import { delay, finalize, map, pluck, switchMap, tap } from "rxjs/operators";
+import { delay, finalize, pluck, switchMap, tap } from "rxjs/operators";
 
 import endpoints from "src/environments/endpoints";
+import { IAuthService } from "../../interfaces/IAuthService";
 import { SignInRequest } from "../../models/SignInRequest";
 import { IUser, User } from "../../models/User";
 import { mapToClass } from "../../operators/mapToClass";
 
-@Injectable({
-  providedIn: "root",
-})
-export class AuthService {
+@Injectable()
+export class AuthService implements IAuthService {
   isLoggedIn$ = new BehaviorSubject(this.getIsLoggedInFromLocalStorage());
 
   isAttempting$ = new BehaviorSubject(false);

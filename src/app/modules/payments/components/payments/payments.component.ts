@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import { Component, Inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
@@ -6,9 +6,10 @@ import { MatTableDataSource } from "@angular/material/table";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 import { Task } from "../../models/Task";
-import { TasksService } from "../../services/tasks";
 
 import { ModalControl } from "mat-modal";
+import { ITaskService } from "../../interfaces/ITaskService";
+import { TASK_SERVICE } from "../../tokens/task-service.token";
 
 @Component({
   selector: "app-payments",
@@ -33,7 +34,7 @@ export class PaymentsComponent implements OnInit, OnDestroy {
 
   selectedTask: Task | null;
 
-  constructor(private tasksService: TasksService) {}
+  constructor(@Inject(TASK_SERVICE) private taskService: ITaskService) {}
 
   ngOnInit(): void {
     this.registerSearchInputControlChanges();
@@ -81,7 +82,7 @@ export class PaymentsComponent implements OnInit, OnDestroy {
   }
 
   private loadTasks(): void {
-    this.tasksService.getTasks().subscribe((tasks) => {
+    this.taskService.getTasks().subscribe((tasks) => {
       this.dataSource.data = tasks;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

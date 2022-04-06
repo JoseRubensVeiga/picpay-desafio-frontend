@@ -5,11 +5,10 @@ import { pluck } from "rxjs/operators";
 
 import { ToastrService } from "ngx-toastr";
 import Swal, { SweetAlertOptions } from "sweetalert2";
+import { INotificationService } from "../../interfaces/INotificationService";
 
-@Injectable({
-  providedIn: "root",
-})
-export class NotificationService {
+@Injectable()
+export class NotificationService implements INotificationService {
   private confirmConfig: SweetAlertOptions = {
     icon: "question",
     confirmButtonText: "Confirmar",

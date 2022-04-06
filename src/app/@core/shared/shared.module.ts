@@ -6,10 +6,18 @@ import { MatRippleModule } from "@angular/material/core";
 import { MatIconModule } from "@angular/material/icon";
 
 import { HeaderComponent } from "./components/header/header.component";
+import { AUTH_SERVICE } from "../tokens/auth-service.token";
+import { AuthService } from "../services/auth";
 
 @NgModule({
   declarations: [HeaderComponent],
   imports: [CommonModule, MatMenuModule, MatRippleModule, MatIconModule],
   exports: [HeaderComponent],
+  providers: [
+    {
+      provide: AUTH_SERVICE,
+      useClass: AuthService,
+    },
+  ],
 })
 export class SharedModule {}

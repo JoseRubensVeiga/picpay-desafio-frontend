@@ -3,10 +3,11 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { mapToClasses } from "src/app/@core/operators/mapToClass";
 import endpoints from "src/environments/endpoints";
+import { ITaskService } from "../../interfaces/ITaskService";
 import { ITask, Task } from "../../models/Task";
 
 @Injectable()
-export class TasksService {
+export class TaskService implements ITaskService {
   constructor(private http: HttpClient) {}
 
   getTasks(): Observable<Task[]> {

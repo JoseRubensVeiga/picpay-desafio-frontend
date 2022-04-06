@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
-import { AuthService } from "./@core/services/auth";
+import { Component, Inject } from "@angular/core";
+import { IAuthService } from "./@core/interfaces/IAuthService";
+import { AUTH_SERVICE } from "./@core/tokens/auth-service.token";
 
 @Component({
   selector: "app-root",
@@ -9,5 +10,5 @@ import { AuthService } from "./@core/services/auth";
 export class AppComponent {
   isLoggedIn$ = this.authService.isLoggedIn$;
 
-  constructor(private authService: AuthService) {}
+  constructor(@Inject(AUTH_SERVICE) private authService: IAuthService) {}
 }
