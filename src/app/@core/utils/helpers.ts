@@ -11,3 +11,7 @@ export const safeParseISO = (date: string | Date): Date => {
 export const onlyNumbers = (str: string): string => {
   return str.replace(/\D/g, "");
 };
+
+export const realToNumber = (strInReal: string): number => {
+  return +strInReal.replace("R$ ", "").replace(/\./g, "").replace(/\,/g, ".");
+};

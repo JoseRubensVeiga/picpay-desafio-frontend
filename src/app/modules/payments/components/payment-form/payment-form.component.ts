@@ -13,6 +13,8 @@ import { format, parse } from "date-fns";
 import { CustomValidators } from "src/app/@core/validators/CustomValidators";
 import { NOTIFICATION_SERVICE } from "src/app/@core/tokens/notification-service.token";
 import { INotificationService } from "src/app/@core/interfaces/INotificationService";
+import { UpsetTask } from "../../models/UpsetTask";
+import { realToNumber } from "src/app/@core/utils/helpers";
 
 @Component({
   selector: "app-payment-form",
@@ -22,7 +24,7 @@ import { INotificationService } from "src/app/@core/interfaces/INotificationServ
 export class PaymentFormComponent implements OnInit {
   @Input() task: Task | null;
   @Output() canceled = new EventEmitter();
-  @Output() saved = new EventEmitter();
+  @Output() saved = new EventEmitter<UpsetTask>();
 
   mode: "Adicionar" | "Editar" = "Adicionar";
 
@@ -58,7 +60,7 @@ export class PaymentFormComponent implements OnInit {
 
     this.saved.emit({
       name: formRawValue.name,
-      value: +formRawValue.value,
+      value: realToNumber(formRawValue.value),
       date: parse(formRawValue.date, "ddMMyyyy", new Date()),
       title: formRawValue.title,
     });

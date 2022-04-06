@@ -10,6 +10,7 @@ import { Task } from "../../models/Task";
 import { ModalControl } from "mat-modal";
 import { ITaskService } from "../../interfaces/ITaskService";
 import { TASK_SERVICE } from "../../tokens/task-service.token";
+import { UpsetTask } from "../../models/UpsetTask";
 
 @Component({
   selector: "app-payments",
@@ -62,15 +63,25 @@ export class PaymentsComponent implements OnInit, OnDestroy {
     this.removeModalControl.open();
   }
 
-  onSaveTask(event: {
-    date: Date;
-    name: string;
-    title: string;
-    value: number;
-  }): void {
-    console.log(event);
+  onSaveTask(upsetTask: UpsetTask): void {
+    if (this.selectedTask) {
+      this.editTask(upsetTask);
+    } else {
+      this.createTask(upsetTask);
+    }
 
     this.formModalControl.close();
+  }
+
+  private editTask(upsetTask: UpsetTask): void {
+    console.log("editar task");
+  }
+
+  private createTask(upsetTask: UpsetTask): void {
+    this.taskService.createTask(upsetTask).subscribe(() => {
+      console.log("criou");
+    });
+    console.log("criar task");
   }
 
   private registerSearchInputControlChanges(): void {
