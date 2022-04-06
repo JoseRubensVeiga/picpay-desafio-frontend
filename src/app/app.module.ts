@@ -1,5 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { LOCALE_ID, NgModule } from "@angular/core";
+
+import localePt from "@angular/common/locales/pt";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -7,6 +9,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SharedModule } from "./@core/shared/shared.module";
 import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
+import { registerLocaleData } from "@angular/common";
+
+registerLocaleData(localePt);
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -19,7 +24,12 @@ import { ToastrModule } from "ngx-toastr";
 
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: "pt-BR",
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

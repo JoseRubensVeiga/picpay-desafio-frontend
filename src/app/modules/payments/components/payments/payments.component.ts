@@ -1,5 +1,7 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { FormControl } from "@angular/forms";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
@@ -12,18 +14,14 @@ import { TasksService } from "../../services/tasks";
   styleUrls: ["./payments.component.scss"],
 })
 export class PaymentsComponent implements OnInit, OnDestroy {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
   searchInputControl = new FormControl();
 
   _destroyed$ = new Subject();
 
-  displayedColumns = [
-    "username",
-    "title",
-    "date",
-    "value",
-    "isPayed",
-    "actions",
-  ];
+  displayedColumns = ["name", "title", "date", "value", "isPayed", "actions"];
 
   dataSource = new MatTableDataSource<Task>();
 
@@ -49,6 +47,8 @@ export class PaymentsComponent implements OnInit, OnDestroy {
   private loadTasks(): void {
     this.tasksService.getTasks().subscribe((tasks) => {
       this.dataSource.data = tasks;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 }

@@ -8,8 +8,10 @@ import {
   MatPaginatorModule,
 } from "@angular/material/paginator";
 import { MatTableModule } from "@angular/material/table";
+import { MatSortModule } from "@angular/material/sort";
 
 import { PaymentsRoutingModule } from "./payments-routing.module";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 
 import { PaymentsComponent } from "./components/payments";
 import { getPtPaginatorIntl } from "src/app/@core/intl/paginator-intl";
@@ -32,12 +34,15 @@ import { TasksService } from "./services/tasks";
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
+    MatSortModule,
+    MatCheckboxModule,
   ],
   providers: [
     {
       provide: MatPaginatorIntl,
       useValue: getPtPaginatorIntl(),
     },
+
     TasksService,
   ],
 })
