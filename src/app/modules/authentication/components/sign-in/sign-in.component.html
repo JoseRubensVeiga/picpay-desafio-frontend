@@ -7,21 +7,40 @@
 
     <h2 class="title-2 mb-4">Bem vindo de volta</h2>
 
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Email</mat-label>
-      <input type="text" matInput />
-    </mat-form-field>
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Email</mat-label>
+        <input type="text" matInput formControlName="email" />
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Senha</mat-label>
-      <input [type]="showPassword ? 'text' : 'password'" matInput />
-      <button mat-icon-button matSuffix>
-        <mat-icon (click)="toggleShowPassword()">
-          {{ showPassword ? "visibility_off" : "visibility" }}
-        </mat-icon>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Senha</mat-label>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          matInput
+          formControlName="password"
+        />
+        <button mat-icon-button matSuffix type="button">
+          <mat-icon (click)="toggleShowPassword()">
+            {{ showPassword ? "visibility_off" : "visibility" }}
+          </mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button
+        mat-flat-button
+        color="primary"
+        class="sign-in__send-button"
+        type="submit"
+        [disabled]="isAttempting$ | async"
+      >
+        <mat-spinner
+          [diameter]="30"
+          class="spinner-white m-3"
+          *ngIf="isAttempting$ | async"
+        ></mat-spinner>
+        <span *ngIf="(isAttempting$ | async) === false"> ENVIAR </span>
       </button>
-    </mat-form-field>
-
-    <button mat-flat-button color="primary" class="w-100">ENTRAR</button>
+    </form>
   </div>
 </div>
