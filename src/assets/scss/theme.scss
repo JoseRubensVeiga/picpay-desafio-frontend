@@ -65,3 +65,8 @@ button.mat-flat-button {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
+
+.mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
+    padding: 0 0.5em !important;
+    margin-top: 0.3em !important;
+}

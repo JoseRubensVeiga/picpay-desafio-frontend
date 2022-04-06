@@ -16,6 +16,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 
 import { MatModalModule } from "mat-modal";
+import { NgxMaskModule } from "ngx-mask";
 
 import { PaymentsRoutingModule } from "./payments-routing.module";
 
@@ -43,6 +44,8 @@ import { PaymentFormComponent } from "./components/payment-form";
     MatIconModule,
 
     MatModalModule,
+
+    NgxMaskModule.forRoot(),
   ],
   providers: [
     {

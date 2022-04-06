@@ -86,11 +86,12 @@
   </table>
 </mat-card>
 
-<mat-modal [control]="addModalControl" size="800">
+<mat-modal [control]="formModalControl" size="800">
   <app-payment-form
-    *ngIf="addModalControl.isOpened"
+    *ngIf="formModalControl.isOpened"
     [task]="selectedTask"
-    (canceled)="addModalControl.close()"
+    (saved)="onSaveTask($event)"
+    (canceled)="formModalControl.close()"
   ></app-payment-form>
 </mat-modal>
 

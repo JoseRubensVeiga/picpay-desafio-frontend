@@ -27,7 +27,7 @@ export class PaymentsComponent implements OnInit, OnDestroy {
 
   dataSource = new MatTableDataSource<Task>();
 
-  addModalControl = new ModalControl();
+  formModalControl = new ModalControl();
 
   removeModalControl = new ModalControl();
 
@@ -46,19 +46,30 @@ export class PaymentsComponent implements OnInit, OnDestroy {
 
   onAddClick(): void {
     this.selectedTask = null;
-    this.addModalControl.open();
+    this.formModalControl.open();
   }
 
   onEditClick(task: Task): void {
     this.selectedTask = task;
 
-    this.addModalControl.open();
+    this.formModalControl.open();
   }
 
   onRemoveClick(task: Task): void {
     this.selectedTask = task;
 
     this.removeModalControl.open();
+  }
+
+  onSaveTask(event: {
+    date: Date;
+    name: string;
+    title: string;
+    value: number;
+  }): void {
+    console.log(event);
+
+    this.formModalControl.close();
   }
 
   private registerSearchInputControlChanges(): void {
