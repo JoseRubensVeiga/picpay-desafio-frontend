@@ -60,6 +60,7 @@ export class PaymentFormComponent implements OnInit {
 
     this.saved.emit({
       name: formRawValue.name,
+      username: formRawValue.username,
       value: realToNumber(formRawValue.value),
       date: parse(formRawValue.date, "ddMMyyyy", new Date()),
       title: formRawValue.title,
@@ -69,6 +70,7 @@ export class PaymentFormComponent implements OnInit {
   private buildForm(): void {
     this.formGroup = this.formBuilder.group({
       name: [null, Validators.required],
+      username: [null, Validators.required],
       value: [null, Validators.required],
       date: [null, [Validators.required, CustomValidators.brazilianDate]],
       title: [null, Validators.required],

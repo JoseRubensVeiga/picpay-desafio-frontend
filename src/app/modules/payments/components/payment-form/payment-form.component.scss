@@ -11,3 +11,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
+
+.payment-form__title-input {
+    grid-column: 1 / 3;
+}

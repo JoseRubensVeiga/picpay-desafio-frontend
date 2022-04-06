@@ -22,4 +22,20 @@ export class TaskService implements ITaskService {
 
     return this.http.post<void>(baseURL, upsetTask);
   }
+
+  removeTask(taskId: number): Observable<void> {
+    const baseURL = endpoints.tasks;
+    const url = `${baseURL}/${taskId}`;
+
+    return this.http.delete<void>(url);
+  }
+
+  updateTaskStatus(taskId: number, status: boolean): Observable<void> {
+    const baseURL = endpoints.tasks;
+    const url = `${baseURL}/${taskId}`;
+
+    return this.http.patch<void>(url, {
+      isPayed: status,
+    });
+  }
 }

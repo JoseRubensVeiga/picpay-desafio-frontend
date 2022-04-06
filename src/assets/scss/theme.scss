@@ -70,3 +70,7 @@ button.mat-flat-button {
     padding: 0 0.5em !important;
     margin-top: 0.3em !important;
 }
+
+mat-error + mat-error {
+    display: none;
+}

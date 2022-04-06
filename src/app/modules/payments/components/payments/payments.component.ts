@@ -11,6 +11,9 @@ import { ModalControl } from "mat-modal";
 import { ITaskService } from "../../interfaces/ITaskService";
 import { TASK_SERVICE } from "../../tokens/task-service.token";
 import { UpsetTask } from "../../models/UpsetTask";
+import { NOTIFICATION_SERVICE } from "src/app/@core/tokens/notification-service.token";
+import { INotificationService } from "src/app/@core/interfaces/INotificationService";
+import { MatCheckboxChange } from "@angular/material/checkbox";
 
 @Component({
   selector: "app-payments",
@@ -35,7 +38,10 @@ export class PaymentsComponent implements OnInit, OnDestroy {
 
   selectedTask: Task | null;
 
-  constructor(@Inject(TASK_SERVICE) private taskService: ITaskService) {}
+  constructor(
+    @Inject(TASK_SERVICE) private taskService: ITaskService,
+    @Inject(NOTIFICATION_SERVICE) private notification: INotificationService
+  ) {}
 
   ngOnInit(): void {
     this.registerSearchInputControlChanges();
@@ -73,15 +79,33 @@ export class PaymentsComponent implements OnInit, OnDestroy {
     this.formModalControl.close();
   }
 
+  removeTask(): void {
+    this.taskService.removeTask(this.selectedTask.id).subscribe(() => {
+      this.notification.success("Tarefa removida com sucesso!");
+
+      this.loadTasks();
+      this.removeModalControl.close();
+    });
+  }
+
+  changeTaskStatus(task: Task, event: MatCheckboxChange) {
+    this.taskService.updateTaskStatus(task.id, event.checked).subscribe(() => {
+      this.notification.success(
+        `Status da tarefa ${task.id} alterado com sucesso!`
+      );
+    });
+  }
+
   private editTask(upsetTask: UpsetTask): void {
     console.log("editar task");
   }
 
   private createTask(upsetTask: UpsetTask): void {
     this.taskService.createTask(upsetTask).subscribe(() => {
-      console.log("criou");
+      this.notification.success("Nova tarefa criada com sucesso!");
+
+      this.loadTasks();
     });
-    console.log("criar task");
   }
 
   private registerSearchInputControlChanges(): void {

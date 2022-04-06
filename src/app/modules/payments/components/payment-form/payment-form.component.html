@@ -6,9 +6,17 @@
   (ngSubmit)="onSubmit()"
 >
   <mat-form-field appearance="outline" class="w-100">
-    <mat-label>Usuário</mat-label>
+    <mat-label>Nome</mat-label>
     <input type="text" matInput formControlName="name" required />
     <mat-error *ngIf="formGroup.get('name').hasError('required')">
+      Este campo é obrigatório
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Usuário</mat-label>
+    <input type="text" matInput formControlName="username" required />
+    <mat-error *ngIf="formGroup.get('username').hasError('required')">
       Este campo é obrigatório
     </mat-error>
   </mat-form-field>
@@ -51,7 +59,7 @@
     </mat-error>
   </mat-form-field>
 
-  <mat-form-field appearance="outline" class="w-100">
+  <mat-form-field appearance="outline" class="w-100 payment-form__title-input">
     <mat-label>Título</mat-label>
     <input type="text" matInput formControlName="title" required />
     <mat-error *ngIf="formGroup.get('title').hasError('required')">

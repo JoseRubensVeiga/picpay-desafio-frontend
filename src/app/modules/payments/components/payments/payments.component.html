@@ -56,6 +56,7 @@
       <td mat-cell *matCellDef="let element">
         <mat-checkbox
           [checked]="element.isPayed"
+          (change)="changeTaskStatus(element, $event)"
           color="primary"
         ></mat-checkbox>
       </td>
@@ -112,7 +113,9 @@
       >
         CANCELAR
       </button>
-      <button mat-flat-button color="warn">EXCLUIR</button>
+      <button mat-flat-button color="warn" (click)="removeTask()">
+        EXCLUIR
+      </button>
     </div>
   </ng-container>
 </mat-modal>

@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
@@ -25,6 +25,8 @@ import { getPtPaginatorIntl } from "src/app/@core/intl/paginator-intl";
 import { TaskService } from "./services/task";
 import { PaymentFormComponent } from "./components/payment-form";
 import { TASK_SERVICE } from "./tokens/task-service.token";
+import { NOTIFICATION_SERVICE } from "src/app/@core/tokens/notification-service.token";
+import { NotificationService } from "src/app/@core/services/notification";
 
 @NgModule({
   declarations: [PaymentsComponent, PaymentFormComponent],
@@ -33,6 +35,7 @@ import { TASK_SERVICE } from "./tokens/task-service.token";
     PaymentsRoutingModule,
 
     ReactiveFormsModule,
+    FormsModule,
 
     MatButtonModule,
     MatCardModule,
@@ -56,6 +59,10 @@ import { TASK_SERVICE } from "./tokens/task-service.token";
     {
       provide: TASK_SERVICE,
       useClass: TaskService,
+    },
+    {
+      provide: NOTIFICATION_SERVICE,
+      useClass: NotificationService,
     },
   ],
 })
