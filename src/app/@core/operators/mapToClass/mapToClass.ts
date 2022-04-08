@@ -14,3 +14,8 @@ export const mapToClass = <T>(
 export const mapToClasses = <T>(
   _class: new (data?: any) => T
 ): OperatorFunction<any, T[]> => map((value) => _mapToClasses(value, _class));
+
+export const exportedForTesting = {
+  _mapToClass,
+  _mapToClasses,
+};

@@ -6,8 +6,8 @@ import { delay, finalize, pluck, switchMap, tap } from "rxjs/operators";
 
 import endpoints from "src/environments/endpoints";
 import { IAuthService } from "../../interfaces/IAuthService";
-import { SignInRequest } from "../../models/SignInRequest";
-import { IUser, User } from "../../models/User";
+import { SignInRequest } from "../../models/SignInRequest/SignInRequest";
+import { IUser, User } from "../../models/User/User";
 import { mapToClass } from "../../operators/mapToClass";
 
 @Injectable({ providedIn: "root" })

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { IAuthService } from "src/app/@core/interfaces/IAuthService";
 import { INotificationService } from "src/app/@core/interfaces/INotificationService";
-import { SignInRequest } from "src/app/@core/models/SignInRequest";
+import { SignInRequest } from "src/app/@core/models/SignInRequest/SignInRequest";
 import { AUTH_SERVICE } from "src/app/@core/tokens/auth-service.token";
 import { NOTIFICATION_SERVICE } from "src/app/@core/tokens/notification-service.token";
 

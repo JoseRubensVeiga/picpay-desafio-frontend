@@ -1,8 +1,8 @@
 import faker from "@faker-js/faker";
 import { BehaviorSubject, Observable, of } from "rxjs";
-import { IAuthService } from "../../interfaces/IAuthService";
-import { SignInRequest } from "../../models/SignInRequest";
-import { User } from "../../models/User";
+import { IAuthService } from "../../../interfaces/IAuthService";
+import { SignInRequest } from "../../../models/SignInRequest/SignInRequest";
+import { User } from "../../../models/User/User";
 
 export class AuthServiceMock implements IAuthService {
   isLoggedIn$ = new BehaviorSubject(false);

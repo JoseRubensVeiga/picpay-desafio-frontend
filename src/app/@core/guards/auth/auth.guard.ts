@@ -32,25 +32,30 @@ export class AuthGuard implements CanActivate {
     | boolean
     | UrlTree {
     return this.authService.isLoggedIn$.pipe(
-      map((isLoggedIn) => {
-        const path = route.url[0].path;
-        const isAuthentication = path.startsWith("autenticacao");
-
-        if (isAuthentication && isLoggedIn) {
-          return this.router.parseUrl("pagamentos");
-        }
-
-        if (isAuthentication) {
-          return true;
-        }
-
-        if (!isLoggedIn) {
-          this.notification.error("Você não está autenticado");
-          return this.router.parseUrl("autenticacao");
-        }
-
-        return true;
-      })
+      map((isLoggedIn) => this.getUrlTreeResult(route, isLoggedIn))
     );
+  }
+
+  private getUrlTreeResult(
+    route: ActivatedRouteSnapshot,
+    isLoggedIn: boolean
+  ): UrlTree | boolean {
+    const path = route.url[0].path;
+    const isAuthentication = path.startsWith("autenticacao");
+
+    if (isAuthentication && isLoggedIn) {
+      return this.router.parseUrl("pagamentos");
+    }
+
+    if (isAuthentication) {
+      return true;
+    }
+
+    if (!isLoggedIn) {
+      this.notification.error("Você não está autenticado");
+      return this.router.parseUrl("autenticacao");
+    }
+
+    return true;
   }
 }

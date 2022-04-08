@@ -1,6 +1,6 @@
 import { BehaviorSubject, Observable } from "rxjs";
-import { SignInRequest } from "../models/SignInRequest";
-import { User } from "../models/User";
+import { SignInRequest } from "../models/SignInRequest/SignInRequest";
+import { User } from "../models/User/User";
 
 export interface IAuthService {
   isLoggedIn$: BehaviorSubject<boolean>;

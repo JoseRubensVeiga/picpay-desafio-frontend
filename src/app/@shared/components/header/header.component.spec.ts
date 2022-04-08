@@ -4,12 +4,12 @@ import { RouterTestingModule } from "@angular/router/testing";
 
 import { ToastrModule } from "ngx-toastr";
 
-import { AuthServiceMock } from "src/app/@core/mocks/services/auth-service.mock";
 import { AUTH_SERVICE } from "src/app/@core/tokens/auth-service.token";
 import { HeaderComponent } from "./header.component";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatRippleModule } from "@angular/material/core";
 import { MatIconModule } from "@angular/material/icon";
+import { AuthServiceMock } from "src/app/@core/mocks/services/auth";
 
 describe("HeaderComponent", () => {
   let component: HeaderComponent;
