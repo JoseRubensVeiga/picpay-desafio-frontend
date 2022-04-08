@@ -25,10 +25,6 @@ import { getPtPaginatorIntl } from "src/app/@core/intl/paginator-intl";
 import { TaskService } from "./services/task";
 import { PaymentFormComponent } from "./components/payment-form";
 import { TASK_SERVICE } from "./tokens/task-service.token";
-import { NOTIFICATION_SERVICE } from "src/app/@core/tokens/notification-service.token";
-import { NotificationService } from "src/app/@core/services/notification";
-import { AuthService } from "src/app/@core/services/auth";
-import { AUTH_SERVICE } from "src/app/@core/tokens/auth-service.token";
 
 @NgModule({
   declarations: [PaymentsComponent, PaymentFormComponent],

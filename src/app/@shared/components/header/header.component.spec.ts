@@ -1,16 +1,32 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { RouterTestingModule } from "@angular/router/testing";
 
-import { HeaderComponent } from './header.component';
+import { ToastrModule } from "ngx-toastr";
 
-describe('HeaderComponent', () => {
+import { AuthServiceMock } from "src/app/@core/mocks/services/auth-service.mock";
+import { AUTH_SERVICE } from "src/app/@core/tokens/auth-service.token";
+import { HeaderComponent } from "./header.component";
+
+describe("HeaderComponent", () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
-    })
-    .compileComponents();
+      imports: [
+        HttpClientTestingModule,
+        ToastrModule.forRoot(),
+        RouterTestingModule,
+      ],
+      declarations: [HeaderComponent],
+      providers: [
+        {
+          provice: AUTH_SERVICE,
+          useClass: AuthServiceMock,
+        },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +35,7 @@ describe('HeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

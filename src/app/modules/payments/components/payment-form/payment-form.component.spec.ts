@@ -1,16 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ReactiveFormsModule } from "@angular/forms";
+import { ToastrModule } from "ngx-toastr";
 
-import { PaymentFormComponent } from './payment-form.component';
+import { PaymentFormComponent } from "./payment-form.component";
 
-describe('PaymentFormComponent', () => {
+describe("PaymentFormComponent", () => {
   let component: PaymentFormComponent;
   let fixture: ComponentFixture<PaymentFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PaymentFormComponent ]
-    })
-    .compileComponents();
+      declarations: [PaymentFormComponent],
+      imports: [ReactiveFormsModule, ToastrModule.forRoot()],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +21,7 @@ describe('PaymentFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

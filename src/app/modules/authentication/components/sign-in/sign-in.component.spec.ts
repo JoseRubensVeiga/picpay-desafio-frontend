@@ -1,16 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ReactiveFormsModule } from "@angular/forms";
+import { RouterTestingModule } from "@angular/router/testing";
+import { ToastrModule } from "ngx-toastr";
 
-import { SignInComponent } from './sign-in.component';
+import { SignInComponent } from "./sign-in.component";
 
-describe('SignInComponent', () => {
+describe("SignInComponent", () => {
   let component: SignInComponent;
   let fixture: ComponentFixture<SignInComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignInComponent ]
-    })
-    .compileComponents();
+      declarations: [SignInComponent],
+      imports: [
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+        ToastrModule.forRoot(),
+        RouterTestingModule,
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +28,7 @@ describe('SignInComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
