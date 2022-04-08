@@ -33,14 +33,6 @@ registerLocaleData(localePt);
       provide: LOCALE_ID,
       useValue: "pt-BR",
     },
-    {
-      provide: AUTH_SERVICE,
-      useClass: AuthService,
-    },
-    {
-      provide: NOTIFICATION_SERVICE,
-      useClass: NotificationService,
-    },
   ],
   bootstrap: [AppComponent],
 })

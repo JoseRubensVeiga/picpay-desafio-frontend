@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 
 import { BehaviorSubject, Observable, of, throwError } from "rxjs";
 import { delay, finalize, pluck, switchMap, tap } from "rxjs/operators";
@@ -10,7 +10,7 @@ import { SignInRequest } from "../../models/SignInRequest";
 import { IUser, User } from "../../models/User";
 import { mapToClass } from "../../operators/mapToClass";
 
-@Injectable()
+@Injectable({ providedIn: "root" })
 export class AuthService implements IAuthService {
   isLoggedIn$ = new BehaviorSubject(this.getIsLoggedInFromLocalStorage());
 

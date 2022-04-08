@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Route, RouterModule } from "@angular/router";
+import { AuthGuard } from "./@core/guards/auth";
 
 const routes: Route[] = [
   {
@@ -8,6 +9,7 @@ const routes: Route[] = [
       import("./modules/authentication/authentication.module").then(
         (m) => m.AuthenticationModule
       ),
+    canActivate: [AuthGuard],
   },
 
   {
@@ -16,6 +18,7 @@ const routes: Route[] = [
       import("./modules/payments/payments.module").then(
         (m) => m.PaymentsModule
       ),
+    canActivate: [AuthGuard],
   },
 
   {

@@ -18,7 +18,7 @@
       "value": 285.86,
       "date": "2020-10-02T23:04:57Z",
       "image": "https://robohash.org/estquisquamquaerat.png?size=150x150&set=set1",
-      "isPayed": false
+      "isPayed": true
     },
     {
       "id": 8,
@@ -28,7 +28,7 @@
       "value": 354.56,
       "date": "2020-09-12T05:18:50Z",
       "image": "https://robohash.org/asinthic.png?size=150x150&set=set1",
-      "isPayed": false
+      "isPayed": true
     },
     {
       "id": 9,
@@ -48,7 +48,7 @@
       "value": 423.64,
       "date": "2020-06-04T18:45:29Z",
       "image": "https://robohash.org/possimusautemnecessitatibus.png?size=150x150&set=set1",
-      "isPayed": false
+      "isPayed": true
     },
     {
       "id": 11,
@@ -78,7 +78,7 @@
       "value": 25.91,
       "date": "2021-05-25T14:51:59Z",
       "image": "https://robohash.org/cupiditatehicquaerat.png?size=150x150&set=set1",
-      "isPayed": false
+      "isPayed": true
     },
     {
       "id": 14,
@@ -88,7 +88,7 @@
       "value": 128.15,
       "date": "2020-08-09T21:10:44Z",
       "image": "https://robohash.org/enimmolestiaeperspiciatis.png?size=150x150&set=set1",
-      "isPayed": true
+      "isPayed": false
     },
     {
       "id": 15,
@@ -98,7 +98,7 @@
       "value": 268.67,
       "date": "2021-02-19T12:35:58Z",
       "image": "https://robohash.org/doloribustotamprovident.png?size=150x150&set=set1",
-      "isPayed": true
+      "isPayed": false
     },
     {
       "id": 16,

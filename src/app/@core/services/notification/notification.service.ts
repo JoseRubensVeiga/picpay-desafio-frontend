@@ -7,7 +7,7 @@ import { ToastrService } from "ngx-toastr";
 import Swal, { SweetAlertOptions } from "sweetalert2";
 import { INotificationService } from "../../interfaces/INotificationService";
 
-@Injectable()
+@Injectable({ providedIn: "root" })
 export class NotificationService implements INotificationService {
   private confirmConfig: SweetAlertOptions = {
     icon: "question",
@@ -25,7 +25,7 @@ export class NotificationService implements INotificationService {
   constructor(private toastr: ToastrService) {
     this.toastr.toastrConfig.preventDuplicates = true;
     this.toastr.toastrConfig.resetTimeoutOnDuplicate = true;
-    this.toastr.toastrConfig.timeOut = 10000;
+    this.toastr.toastrConfig.timeOut = 5000;
     this.toastr.toastrConfig.progressBar = true;
   }
 

@@ -16,7 +16,7 @@ import { AuthService } from "../services/auth";
   providers: [
     {
       provide: AUTH_SERVICE,
-      useClass: AuthService,
+      useExisting: AuthService,
     },
   ],
 })
