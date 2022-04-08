@@ -6,12 +6,21 @@ import { MatRippleModule } from "@angular/material/core";
 import { MatIconModule } from "@angular/material/icon";
 
 import { HeaderComponent } from "./components/header/header.component";
-import { AUTH_SERVICE } from "../tokens/auth-service.token";
-import { AuthService } from "../services/auth";
+import { AUTH_SERVICE } from "../@core/tokens/auth-service.token";
+import { AuthService } from "../@core/services/auth";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [HeaderComponent],
-  imports: [CommonModule, MatMenuModule, MatRippleModule, MatIconModule],
+  imports: [
+    CommonModule,
+
+    RouterModule,
+
+    MatMenuModule,
+    MatRippleModule,
+    MatIconModule,
+  ],
   exports: [HeaderComponent],
   providers: [
     {

@@ -6,14 +6,10 @@ import localePt from "@angular/common/locales/pt";
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { SharedModule } from "./@core/shared/shared.module";
+import { SharedModule } from "./@shared/shared.module";
 import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
 import { registerLocaleData } from "@angular/common";
-import { AUTH_SERVICE } from "./@core/tokens/auth-service.token";
-import { AuthService } from "./@core/services/auth";
-import { NOTIFICATION_SERVICE } from "./@core/tokens/notification-service.token";
-import { NotificationService } from "./@core/services/notification";
 
 registerLocaleData(localePt);
 @NgModule({

@@ -22,6 +22,13 @@ const routes: Route[] = [
   },
 
   {
+    path: "perfil",
+    loadChildren: () =>
+      import("./modules/profile/profile.module").then((m) => m.ProfileModule),
+    canActivate: [AuthGuard],
+  },
+
+  {
     path: "",
     redirectTo: "autenticacao",
     pathMatch: "full",
